@@ -73,7 +73,7 @@ public class NetworkFetcher<T : DataConvertible> : Fetcher<T> {
             return
         }
         
-        if let httpResponse = response as? NSHTTPURLResponse where !httpResponse.hnk_isValidStatusCode() {
+        if let httpResponse = response as? NSHTTPURLResponse , !httpResponse.hnk_isValidStatusCode() {
             let description = NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode)
             self.failWithCode(.InvalidStatusCode, localizedDescription: description, failure: fail)
             return

@@ -26,18 +26,18 @@ struct INSPhotosDataSource{
         return photos.count
     }
     
-    func photoAtIndex(index: Int) -> INSPhotoViewable? {
+    func photoAtIndex(_ index: Int) -> INSPhotoViewable? {
         if (index < photos.count && index >= 0) {
             return photos[index];
         }
         return nil
     }
     
-    func indexOfPhoto(photo: INSPhotoViewable) -> Int? {
-        return photos.indexOf({ $0 === photo})
+    func indexOfPhoto(_ photo: INSPhotoViewable) -> Int? {
+        return photos.index(where: { $0 === photo})
     }
 
-    func containsPhoto(photo: INSPhotoViewable) -> Bool {
+    func containsPhoto(_ photo: INSPhotoViewable) -> Bool {
         return indexOfPhoto(photo) != nil
     }
     
